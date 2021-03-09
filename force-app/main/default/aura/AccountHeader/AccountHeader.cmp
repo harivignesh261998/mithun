@@ -1,0 +1,19 @@
+<aura:component controller="AccountListController" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:handler name = "init" value = "{!this}" action = "{!c.initalLoad}" />
+    <aura:attribute name = "header" type = "List" />
+    <aura:handler event="c:deleteEvent" action="{!c.handleComponentEvent}"/>
+    <aura:registerEvent name="tEventing" type="c:tEvent"/>
+    <lightning:button label="Relode" title="Neutral action" class = "slds-float_right" onclick="{! c.handleClick }"/> 
+    <table class="slds-table slds-table--bordered slds-table--striped">
+        
+        <thead>
+            <tr>
+                <aura:iteration items = "{!v.header}" var = "headerItem">
+                    <th scope="col">{!headerItem.label}</th>
+                </aura:iteration>
+            </tr>
+        </thead>
+        
+        <c:AccountTable aura:id="tableData"/>
+    </table>
+</aura:component>  

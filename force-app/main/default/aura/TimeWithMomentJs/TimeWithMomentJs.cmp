@@ -1,0 +1,11 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="myAttribute" type="String"/>
+    <h1 class="slds-text-align_center" >Time With Moment Js</h1>
+    <lightning:layout verticalAlign="end" class="slds-form slds-form_horizontal">
+        <lightning:layoutitem padding="around-small" size="9" flexibility="auto">
+        <lightning:input aura:id="inputId"  type="datetime" name="input1" />
+    </lightning:layoutitem>
+</lightning:layout>
+<lightning:button class="slds-align_absolute-center" label="Show" title="Neutral action" onclick="{! c.handleClick }"/>
+<p style="text-align: center;">{! 'The America/New York Time is : '+v.myAttribute}</p>
+</aura:component>

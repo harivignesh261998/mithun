@@ -1,0 +1,44 @@
+<aura:component controller="SaveAccountController"  implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+    <aura:attribute name="Accountval" type="Account" default="{ 'sobjectType': 'Account','Name': '','AccountNumber':'','Type':'','Approved__c':'false'}"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="disableButton" type="boolean" default="true"/>
+    <h1 style="text-align: center;">Account Insert</h1>
+    <div class="slds-m-around_xx-large">
+        <lightning:button class="slds-align_absolute-center" variant="brand" label="Click" title="About" onclick="{! c.openModel }" />
+        <aura:if isTrue="{!v.isOpen}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close" onclick="{! c.closeModel }" alternativeText="close" variant="bare-inverse" class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Insert Account</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <div class="slds-grid slds-gutters">
+                                <div class="slds-col">
+                                    <lightning:input aura:id="nameInput" value="{!v.Accountval.Name}"  name="nameInput" label="Name" onchange="{!c.emptyOrNot}" />
+                                </div>
+                                <div class="slds-col">
+                                    <lightning:input aura:id="accountInput" value="{!v.Accountval.AccountNumber}" type="number" name="accountInput" label="Account Number" onchange="{!c.emptyOrNot}"  />
+                                </div>
+                              </div>
+                              
+                                  <lightning:select aura:id="typeInput" value="{!v.Accountval.Type}" name="typeInput" label="Account Type" onchange="{!c.emptyOrNot}">
+                                      <option value="">--None--</option>
+                                      <option value="Prospect">Prospect</option>
+                                      <option value="Customer-Direct">Customer-Direct</option>
+                                      <option value="Customer-Channel">Customer-Channel</option>
+                                      <option value="Other">Other</option>
+                                  </lightning:select>
+                                  <lightning:input aura:id="approveInput" checked="{!v.Accountval.Approved__c}" type="checkbox" label="Approved" name="approveInput" /> 
+                          
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" label="Cancel" title="Cancel" onclick="{! c.closeModel }"/>
+                        <lightning:button variant="brand" label="Submit" title="Submit" onclick="{! c.submit }"  disabled="{!v.disableButton}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

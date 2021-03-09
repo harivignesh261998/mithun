@@ -1,0 +1,9 @@
+<aura:component>
+    <aura:attribute name="firstNumber" type="Integer" />
+    <aura:attribute name="secondNumber" type="Integer" />
+	<lightning:input type = "number" value ="{!v.firstNumber}" label="Enter the First Number"/>
+    <br/>
+ 	<lightning:input type = "number" value ="{!v.secondNumber}" label="Enter the Second Number" />
+    <br/>
+    <p>The Sum : {!v.firstNumber+v.secondNumber}</p>
+</aura:component>

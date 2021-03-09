@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>checking_the_author_native</fullName>
+    <active>true</active>
+    <description>checking the author native</description>
+    <errorConditionFormula>(RecordType.Name==&apos;Foreign Author&apos;)&amp;&amp;(TEXT( Country__c ) == TEXT( Living_Country__c ))</errorConditionFormula>
+    <errorMessage>Country of Origin and Living Country should not be same</errorMessage>
+</ValidationRule>

@@ -1,0 +1,1 @@
+Select Id,Name,Contact_Count__c,India_Count__c,America_Count__c from Account

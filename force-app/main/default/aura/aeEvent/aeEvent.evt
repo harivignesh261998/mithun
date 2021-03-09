@@ -1,0 +1,6 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="accountId" type="Id"/>
+    <aura:attribute name="headerMessage" type="String"/>
+    <aura:attribute name="bodyMessage" type="String"/>
+    <aura:attribute name="buttonName" type="String"/>
+</aura:event>
